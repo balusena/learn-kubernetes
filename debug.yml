@@ -5,10 +5,10 @@ metadata:
 spec:
   containers:
     - name: busybox
-      image: busybox
+      image: alpine
       command: [ "/bin/sh", "-c" ]
       args:
         - |
-          apk update &&
-          apk add curl bind-tools &&
+          apk add --no-cache curl bind-tools &&
           while true; do sleep 30; done;
+
