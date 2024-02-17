@@ -3,6 +3,12 @@ kind: Pod
 metadata:
   name: busybox-pod
 spec:
+  initContainers:
+    - name: install-utils
+      image: busybox
+      command: [ "/bin/sh", "-c" ]
+      args:
+        - apk update && apk add curl bind-tools
   containers:
     - name: busybox
       image: busybox
