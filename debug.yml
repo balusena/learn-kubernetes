@@ -3,8 +3,8 @@ kind: Pod
 metadata:
   name: busybox-pod
 spec:
-  initContainers:
-    - name: install-utils
+  containers:
+    - name: busybox
       image: busybox
       command: [ "/bin/sh", "-c" ]
       args:
@@ -12,8 +12,3 @@ spec:
           apk update &&
           apk add curl bind-tools &&
           while true; do sleep 30; done;
-  containers:
-    - name: busybox
-      image: busybox
-      command: [ "/bin/sh", "-c", "--" ]
-      args: [ "while true; do sleep 30; done;" ]
