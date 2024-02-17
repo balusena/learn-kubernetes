@@ -8,7 +8,10 @@ spec:
       image: busybox
       command: [ "/bin/sh", "-c" ]
       args:
-        - apk update && apk add curl bind-tools
+        - |
+          apk update &&
+          apk add curl bind-tools &&
+          while true; do sleep 30; done;
   containers:
     - name: busybox
       image: busybox
